@@ -12,6 +12,8 @@ const navItems: NavItem[] = [
   { to: '/penjualan/baru', label: 'Penjualan Baru' },
   { to: '/riwayat-penjualan', label: 'Riwayat Penjualan' },
   { to: '/riwayat-stok', label: 'Riwayat Stok' },
+  { to: '/restock', label: 'Restock Barang' },
+  { to: '/inventory', label: 'Stok Opname' },
 ];
 
 function navLinkClass({ isActive }: { isActive: boolean }): string {

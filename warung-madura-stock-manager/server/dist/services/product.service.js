@@ -38,8 +38,8 @@ async function listProducts(filter) {
         ];
     }
     if (filter.inStock) {
-        where.stock = { gt: 0 };
         where.isActive = true;
+        where.stock = { gt: 0 };
     }
     const products = await db_1.db.product.findMany({ where, orderBy: { name: 'asc' } });
     return products.map(toProductDto);

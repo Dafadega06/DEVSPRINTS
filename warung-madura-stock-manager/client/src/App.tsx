@@ -9,6 +9,11 @@ import { SaleDetailPage } from './pages/SaleDetailPage';
 import { SalesHistoryPage } from './pages/SalesHistoryPage';
 import { StockHistoryPage } from './pages/StockHistoryPage';
 
+import { RestockPage } from './pages/RestockPage';
+import { RestockDetailPage } from './pages/RestockDetailPage';
+import { InventoryPage } from './pages/InventoryPage';
+import { InventoryDetailPage } from './pages/InventoryDetailPage';
+
 function NotFoundPage() {
   return (
     <div>
@@ -30,6 +35,10 @@ export default function App() {
         <Route path="riwayat-penjualan" element={<SalesHistoryPage />} />
         <Route path="riwayat-penjualan/:id" element={<SaleDetailPage />} />
         <Route path="riwayat-stok" element={<StockHistoryPage />} />
+        <Route path="restock" element={<RestockPage />} />
+        <Route path="restock/:id" element={<RestockDetailPage />} />
+        <Route path="inventory" element={<InventoryPage />} />
+        <Route path="inventory/:id" element={<InventoryDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

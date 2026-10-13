@@ -13,6 +13,11 @@ const typeStyles: Record<StockMovementType, { label: string; className: string; 
   SALE: { label: 'Penjualan', className: 'bg-blue-50 text-blue-700', sign: '−' },
   ADJUSTMENT_IN: { label: 'Penyesuaian Masuk', className: 'bg-green-50 text-green-700', sign: '+' },
   ADJUSTMENT_OUT: { label: 'Penyesuaian Keluar', className: 'bg-amber-50 text-amber-700', sign: '−' },
+  RESTOCK: { label: 'Restock Masuk', className: 'bg-emerald-50 text-emerald-700', sign: '+' },
+  RESTOCK_BONUS: { label: 'Bonus Restock', className: 'bg-purple-50 text-purple-700', sign: '+' },
+  DAMAGED_IN: { label: 'Barang Rusak (Masuk)', className: 'bg-red-50 text-red-700', sign: '!' },
+  OPNAME_IN: { label: 'Opname (+)', className: 'bg-teal-50 text-teal-700', sign: '+' },
+  OPNAME_OUT: { label: 'Opname (−)', className: 'bg-rose-50 text-rose-700', sign: '−' },
 };
 
 export function StockHistoryPage() {

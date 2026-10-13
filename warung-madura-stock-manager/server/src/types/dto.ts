@@ -41,7 +41,16 @@ export interface SaleDetailDto {
   items: SaleItemDto[];
 }
 
-export type StockMovementTypeDto = 'INITIAL' | 'SALE' | 'ADJUSTMENT_IN' | 'ADJUSTMENT_OUT';
+export type StockMovementTypeDto =
+  | 'INITIAL'
+  | 'SALE'
+  | 'ADJUSTMENT_IN'
+  | 'ADJUSTMENT_OUT'
+  | 'RESTOCK'
+  | 'RESTOCK_BONUS'
+  | 'DAMAGED_IN'
+  | 'OPNAME_IN'
+  | 'OPNAME_OUT';
 
 export interface StockMovementDto {
   id: string;
@@ -68,4 +77,107 @@ export interface DashboardDto {
   lowStockThreshold: number;
   latestSales: SaleSummaryDto[];
   lowStockProducts: ProductDto[];
+}
+
+
+// --- RESTOCK MODULE ---
+
+export interface SupplierDto {
+  id: string;
+  name: string;
+  phone: string | null;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RestockOrderItemDto {
+  id: string;
+  productId: string;
+  productName: string;
+  productSku: string;
+  quantityOrdered: number;
+  quantityReceived: number;
+  unitName: string;
+  piecesPerUnit: number;
+  purchasePrice: number;
+  status: string;
+}
+
+export interface RestockReceiptItemDto {
+  id: string;
+  productId: string;
+  productName: string;
+  productSku: string;
+  quantityGood: number;
+  quantityDamaged: number;
+  quantityBonus: number;
+  purchasePrice: number;
+  unitName: string;
+  piecesPerUnit: number;
+  notes: string | null;
+}
+
+export interface RestockReceiptDto {
+  id: string;
+  receiptNumber: string;
+  receivedBy: string;
+  notes: string | null;
+  receivedAt: string;
+  items: RestockReceiptItemDto[];
+}
+
+export interface RestockOrderSummaryDto {
+  id: string;
+  orderNumber: string;
+  supplierName: string;
+  status: string;
+  itemCount: number;
+  orderedAt: string;
+}
+
+export interface RestockOrderDetailDto {
+  id: string;
+  orderNumber: string;
+  supplierId: string;
+  supplierName: string;
+  status: string;
+  notes: string | null;
+  orderedAt: string;
+  items: RestockOrderItemDto[];
+  receipts: RestockReceiptDto[];
+}
+
+// --- INVENTORY MODULE ---
+
+export interface InventoryCheckItemDto {
+  id: string;
+  productId: string;
+  productName: string;
+  productSku: string;
+  systemStock: number;
+  physicalStock: number;
+  difference: number;
+  reason: string;
+  notes: string | null;
+}
+
+export interface InventoryCheckSummaryDto {
+  id: string;
+  checkNumber: string;
+  checkedBy: string;
+  status: string;
+  itemCount: number;
+  totalDifference: number;
+  checkedAt: string;
+}
+
+export interface InventoryCheckDetailDto {
+  id: string;
+  checkNumber: string;
+  checkedBy: string;
+  status: string;
+  notes: string | null;
+  checkedAt: string;
+  items: InventoryCheckItemDto[];
 }
